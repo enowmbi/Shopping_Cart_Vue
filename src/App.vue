@@ -4,7 +4,7 @@
   <div class="container-fluid">
 <div class="row">
 <div class="col-md-9">
-  <Products v-on:add-product-to-cart="addProduct" v-bind:products="products" />
+  <Products v-on:add-product-to-cart="addProduct($event)" v-bind:products="products" />
 </div>
 <div class="col-md-3">
 <ShoppingCart v-bind:shoppingCartItems="shoppingCartItems"/>
@@ -59,8 +59,7 @@ methods: {
                 alert("Show List has been bubbled !");
           },
           addProduct(prod){
-                /* alert(prod.name + " added to the cart"); */
-    this.shoppingCartItems = [...this.shoppingCartItems, prod];
+              this.shoppingCartItems = [...this.shoppingCartItems, prod];
 }
 
           }

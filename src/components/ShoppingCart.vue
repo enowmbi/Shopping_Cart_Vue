@@ -12,7 +12,7 @@
                 <h6 class="my-0"> {{ item.name }}</h6>
                 <small class="text-muted">{{ item.description }}</small>
               </div>
-              <span class="text-muted">{{ item.price | currency }}</span>
+              <span class="text-muted">{{ item.extendedPrice | currency }}</span>
             </li>
 
             <li class="list-group-item d-flex justify-content-between">
@@ -44,7 +44,7 @@ computed: {
           //iterate through the items in the shopping cart and calculate the total
           //it is updated as items are added or removed from the cart - hence computed property
    this.shoppingCartItems.forEach(function(item) {
-             total += item.price;
+             total += item.extendedPrice;
            });
        return total;
 }

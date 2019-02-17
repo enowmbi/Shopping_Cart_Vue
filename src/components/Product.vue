@@ -10,9 +10,10 @@
             <ul class="list-unstyled mt-3 mb-4">
               <li>{{ prod.description }}</li>
               <li>{{ prod.instock }} in stock</li>
-              <li>Quantity: <input type="text" /></li>
+              <li>Quantity: <input type="text" v-model="qty"/></li>
               </ul>
-            <button v-on:click="$emit('add-product-to-cart',prod)" type="button" class="btn btn-lg btn-block btn-outline-primary">Add to Cart</button>
+              <button v-on:click="addProductToCart" type="button" class="btn btn-lg btn-block btn-outline-primary">Add to Cart</button>
+            <!-- <button v-on:click="$emit('add-product-to-cart',prod)" type="button" class="btn btn-lg btn-block btn-outline-primary">Add to Cart</button> -->
             </div>
             </div>
           </div>
@@ -27,7 +28,30 @@ name: 'Product',
           props: [
           "prod"
           ],
+    data(){
+        return{
+        qty: 1
+        }
+    },
+
+    methods:{
+        addProductToCart(){
+            const purchasedProduct = {
+                id: this.prod.id,
+                name: this.prod.name,
+                description: this.prod.description,
+                price: this.prod.price,
+                quantity: this.qty,
+                extendedPrice: this.qty * this.prod.price
+                
+            }
+console.log(purchasedProduct);
+            //emit to the parent which passes to shopping cart
+            this.$emit('add-product-to-cart',purchasedProduct)
+        }
     
+    },
+
 filters: {
 currency: function(value){
           var formatter = new Intl.NumberFormat("en-US",{
