@@ -43,9 +43,9 @@ name: 'Product',
                 price: this.prod.price,
                 quantity: this.qty,
                 extendedPrice: this.qty * this.prod.price
-                
             }
-console.log(purchasedProduct);
+            //reset qty 
+            this.qty = 1;
             //emit to the parent which passes to shopping cart
             this.$emit('add-product-to-cart',purchasedProduct)
         }
