@@ -11,6 +11,7 @@
               <div>
                 <h6 class="my-0"> {{ item.name }}</h6>
                 <small class="text-muted">{{ item.description }}</small>
+                <p class="text-center"><small><button class="btn btn-danger btn-sm"> - </button>  <button class="btn btn-success btn-sm"> + </button> <button class="btn btn-danger btn-sm"> x </button> </small></p>
               </div>
               <span class="text-muted">{{ item.extendedPrice | currency }}</span>
             </li>
@@ -20,6 +21,7 @@
               <strong>{{ shoppingCartTotal |currency }}</strong>
             </li>
           </ul>
+          <button class="btn btn-success">Check out </button>
 
         </div>
     </div>
